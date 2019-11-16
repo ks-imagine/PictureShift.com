@@ -10,7 +10,8 @@ app = Flask(__name__)
 application = app
 
 # define a folder to store and later serve the images
-UPLOAD_FOLDER = '/home/kevinscaringi/mysite/static/uploads/'
+#UPLOAD_FOLDER = '/home/kevinscaringi/mysite/static/uploads/' #PythonAnywhere
+UPLOAD_FOLDER = '/Users/Kevin/Documents/PictureShift.com/static/uploads/' #PC
 SERVE_FOLDER = '/static/uploads/'
 
 # allow files of a specific type
@@ -54,7 +55,8 @@ def home():
                                        msg='Successfully processed!',
                                        extracted_text=extracted_text,
                                        img_src=SERVE_FOLDER + file.filename,
-                                       mp3_file=SERVE_FOLDER + file.filename + ".mp3")
+                                       mp3_file=SERVE_FOLDER + file.filename + ".mp3",
+                                       txt_file=SERVE_FOLDER + file.filename + ".txt")
             else:
                # display error of no text detected
                return render_template('index.html',
