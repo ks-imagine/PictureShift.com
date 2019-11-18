@@ -10,8 +10,8 @@ app = Flask(__name__)
 application = app
 
 # define a folder to store and later serve the images
-#UPLOAD_FOLDER = '/home/kevinscaringi/mysite/static/uploads/' #PythonAnywhere
-UPLOAD_FOLDER = '/Users/Kevin/Documents/PictureShift.com/static/uploads/' #PC
+UPLOAD_FOLDER = '/home/kevinscaringi/mysite/static/uploads/' #PythonAnywhere
+#UPLOAD_FOLDER = '/Users/Kevin/Documents/PictureShift.com/static/uploads/' #PC
 SERVE_FOLDER = '/static/uploads/'
 
 # allow files of a specific type
