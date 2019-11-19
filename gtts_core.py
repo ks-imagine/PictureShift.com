@@ -4,7 +4,7 @@ from gtts import gTTS
 
 # define a folder to store and later serve the images
 UPLOAD_FOLDER = '/home/kevinscaringi/PictureShift.com/static/uploads/' #PythonAnywhere
-#UPLOAD_FOLDER = '/Users/Kevin/Documents/PictureShift.com/static/uploads/' #PC
+# UPLOAD_FOLDER = '/Users/Kevin/Documents/PictureShift.com/static/uploads/' #PC
 
 # Language in which you want to convert
 language = 'en'
