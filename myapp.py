@@ -44,11 +44,11 @@ def home():
             file.save(UPLOAD_FOLDER + file.filename)
 
             # call the OCR function for text
-            extracted_text = ocr_function(file)
+            extracted_text = ocr_function(file, UPLOAD_FOLDER + file.filename)
 
             if extracted_text:
                 # call the gtts function for audio
-                gtts_function(extracted_text, file.filename)
+                gtts_function(extracted_text, UPLOAD_FOLDER + file.filename)
 
                 # return text and audio + updated page
                 return render_template('index.html',
