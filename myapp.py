@@ -25,25 +25,23 @@ def home():
         ### STAGE 1 - NO FILE SELECTED ###
         # check if there is a file in the request
         if 'file' not in request.files:
-            return render_template('index-new.html',
+            return render_template('index-stage-1.html',
                                    invalidFile='No file selected')
         file = request.files['file']
-        # if no file is selected
+        # if no file is selected / this might be redundant
         if file.filename == '':
             return render_template('index.html',
                                    invalidFile='No file selected')
 
         ### STAGE 2 ###
         if file and allowed_file(file.filename):
-            # save file to static/uploads folder
             file.save(UPLOAD_FOLDER + file.filename)
-            # call the OCR function for text
             extracted_text = ocr_function(file, UPLOAD_FOLDER + file.filename)
 
             if extracted_text:
                 gtts_function(extracted_text, UPLOAD_FOLDER + file.filename)
                 # return text, audio, txt file + update page
-                return render_template('index.html',
+                return render_template('index-stage-2.html',
                                        msg='Successfully processed!',
                                        extracted_text=extracted_text,
                                        img_src=SERVE_FOLDER + file.filename,
@@ -51,16 +49,16 @@ def home():
                                        txt_file=SERVE_FOLDER + file.filename + ".txt")
             ### STAGE 2 - NONE DETECTED ###
             else:
-               return render_template('index.html',
+               return render_template('index-stage-2.html',
                                       msg='No Text Detected',
                                       img_src=SERVE_FOLDER + file.filename)
         ### STAGE 1 - INVALID FILE ###
         else:
-            return render_template('index-new.html',
+            return render_template('index-stage-1.html',
                                    invalidFile='Invalid File Type')
     ### STAGE 1 ###
     elif request.method == 'GET':
-        return render_template('index.html')
+        return render_template('index-stage-1.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
