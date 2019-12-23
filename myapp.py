@@ -6,8 +6,8 @@ app = Flask(__name__)
 application = app
 
 # define a folder to store and later serve the images
-# UPLOAD_FOLDER = '/home/kevinscaringi/PictureShift.com/static/uploads/' #PythonAnywhere
-UPLOAD_FOLDER = '/Users/Kevin/Documents/PictureShift.com/static/uploads/' #PC
+UPLOAD_FOLDER = '/home/kevinscaringi/PictureShift.com/static/uploads/' #PythonAnywhere
+# UPLOAD_FOLDER = '/Users/Kevin/Documents/PictureShift.com/static/uploads/' #Mac
 SERVE_FOLDER = '/static/uploads/'
 
 # allow files of a specific type
@@ -41,7 +41,7 @@ def home():
             if extracted_text:
                 gtts_function(extracted_text, UPLOAD_FOLDER + file.filename)
                 # return text, audio, txt file + update page
-                return render_template('index.html',
+                return render_template('index-stage-1.html',
                                        msg='Successfully processed!',
                                        extracted_text=extracted_text,
                                        img_src=SERVE_FOLDER + file.filename,
@@ -52,8 +52,8 @@ def home():
                                       msg='No Text Detected',
                                       img_src=SERVE_FOLDER + file.filename)
         else:
-            return render_template('index.html',
-                                   msg='Invalid File Type')
+            return render_template('index-new.html',
+                                   badFile='Invalid File Type')
     elif request.method == 'GET':
         return render_template('index.html')
 

@@ -16,7 +16,9 @@
   <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,500,600" rel="stylesheet">
 
   <!-- STYLES -->
+  <link rel="stylesheet" href="file:///C:/Users/kevin.scaringi/Documents/PictureShift.com/static/css/main-new.css">
   <link rel="stylesheet" href="file:///Users/Kevin/Documents/PictureShift.com/static/css/main-new.css">
+  <link rel="stylesheet" href="https://www.pictureshift.com/static/css/main-new.css">
 </head>
 
 <body>
@@ -29,7 +31,7 @@
     </div>
     <div id="row">
       <div class="inner-row">
-        <div id="outer-stage" class="column"> <!--remove column class-->
+        <div id="outer-stage" class=""> <!--remove column class-->
           <div class="inner-stage">
             <form method=post enctype=multipart/form-data> <h3 class="file-upload-titles">Step 1: Choose Your File</h3>
               <label for="file-upload" class="file-upload-buttons">
@@ -40,9 +42,12 @@
               <h3 class="file-upload-titles">Step 2: Upload Your File</h3>
               <input type=submit value="Upload File" class="file-upload-buttons">
             </form>
+            {% if badFile %}
+              <h3 class="file-upload-titles">{{ badFile }}<h3 class="file-upload-titles">
+            {% endif %}
           </div>
         </div>
-        <div id="outer-stage" class="column"> <!-- add/remove hide class -->
+        <div id="outer-stage" class="column hide"> <!-- add/remove hide class -->
           <ul class="inner-stage">
             <div class="circle"></div>
             <div class="circle"></div>
@@ -56,7 +61,7 @@
             <div class="circle"></div>
           </ul>
         </div>
-        <div id="outer-stage" class="column"> <!-- add/remove hide class -->
+        <div id="outer-stage" class="column hide"> <!-- add/remove hide class -->
           <div class="inner-stage file-upload-titles">
             <p>
               <img src="https://www.pictureshift.com/static/uploads/example_01.png" style="max-width: 375px; max-height: 200px;  display: block;">
