@@ -15,13 +15,6 @@ body {
   text-align: center;
   padding-top: 2%;
 }
-.titles {
-  color: #fff;
-  font-weight: 400;
-}
-h1.titles {
-  font-size: 40px;
-}
 
 /* Rows and Columns */
 #row {
@@ -51,10 +44,6 @@ ul.inner-stage {
 }
 
 /* Choose/Upload File */
-.file-upload-titles {
-  color: #fff;
-  font-weight: 300;
-}
 input[type="file"] {
     display: none;
 }
