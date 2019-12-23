@@ -21,17 +21,17 @@ def allowed_file(filename):
 # route and function to handle the web page
 @app.route('/', methods=['GET', 'POST'])
 def home():
-    if request.method == 'POST':''
+    if request.method == 'POST':
         ### STAGE 1 - NO FILE SELECTED ###
         # check if there is a file in the request
         if 'file' not in request.files:
             return render_template('index-new.html',
-                                   badFile='No file selected')
+                                   invalidFile='No file selected')
         file = request.files['file']
         # if no file is selected
         if file.filename == '':
             return render_template('index.html',
-                                   badFile='No file selected')
+                                   invalidFile='No file selected')
 
         ### STAGE 2 ###
         if file and allowed_file(file.filename):
@@ -57,7 +57,7 @@ def home():
         ### STAGE 1 - INVALID FILE ###
         else:
             return render_template('index-new.html',
-                                   badFile='Invalid File Type')
+                                   invalidFile='Invalid File Type')
     ### STAGE 1 ###
     elif request.method == 'GET':
         return render_template('index.html')
