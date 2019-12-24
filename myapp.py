@@ -23,12 +23,10 @@ def allowed_file(filename):
 def home():
     if request.method == 'POST':
         ### STAGE 1 - NO FILE SELECTED ###
-        # check if there is a file in the request. may be redudant
         if 'file' not in request.files:
             return render_template('index-stage-1.html',
                                    invalidFile='first No file selected')
         file = request.files['file']
-        # if no file is selected / this might be redundant
         if file.filename == '':
             return render_template('index-stage-1.html',
                                    invalidFile='2nd No file selected')
@@ -56,7 +54,7 @@ def home():
         else:
             return render_template('index-stage-1.html',
                                    invalidFile='Invalid File Type')
-    ### STAGE 1 ###
+    ### STAGE 1 - HOME ###
     elif request.method == 'GET':
         return render_template('index-stage-1.html')
 
