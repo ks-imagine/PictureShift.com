@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 from ocr_core import ocr_function
 from gtts_core import gtts_function
+from ocr_google import detect_text
 
 app = Flask(__name__)
 application = app
@@ -35,6 +36,7 @@ def home():
         if file and allowed_file(file.filename):
             file.save(UPLOAD_FOLDER + file.filename)
             extracted_text = ocr_function(file, UPLOAD_FOLDER + file.filename)
+            extracted_text_google = detect_text(file)
 
             if extracted_text:
                 gtts_function(extracted_text, UPLOAD_FOLDER + file.filename)
@@ -42,6 +44,7 @@ def home():
                 return render_template('index-stage-2.html',
                                        msg='Successfully processed!',
                                        extracted_text=extracted_text,
+                                       extracted_text_google=extracted_text_google,
                                        img_src=SERVE_FOLDER + file.filename,
                                        mp3_file=SERVE_FOLDER + file.filename + ".mp3",
                                        txt_file=SERVE_FOLDER + file.filename + ".txt")
