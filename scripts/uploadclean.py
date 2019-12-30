@@ -1,8 +1,14 @@
 import os, re
-
-def purge(dir, pattern):
-    for f in os.listdir(dir):
+directory = '/home/kevinscaringi/PictureShift.com/static/uploads/'
+pattern = '^(?!example_01\.png).*'
+def purge(directory, pattern):
+    print("BEFORE")
+    for f in os.listdir(directory):
+        print(f)
         if re.search(pattern, f):
-            os.remove(os.path.join(dir, f))
+            os.remove(os.path.join(directory, f))
 
-purge('/home/kevinscaringi/PictureShift.com/static/uploads/', '^(?!example_01\.png).*')
+purge(directory, pattern)
+print("AFTER")
+print(os.listdir(directory))
+print("###########")
