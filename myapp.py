@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 from ocr_core import ocr_function
 from gtts_core import gtts_function
-from ocr_google import detect_text
+# from ocr_google import detect_text
 
 app = Flask(__name__)
 application = app
