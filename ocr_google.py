@@ -1,7 +1,8 @@
+from google.cloud import vision
+import io
+
 def detect_text(path):
-    """Detects text in the file."""
-    from google.cloud import vision
-    import io
+    # Detects text in the file.
     client = vision.ImageAnnotatorClient()
 
     # [START vision_python_migration_text_detection]
