@@ -32,7 +32,7 @@ def home():
             return render_template('index-stage-1.html',
                                    invalidFile='2nd No file selected')
 
-        ### STAGE 2 ###
+        ### STAGE 2.5 ###
         if file and allowed_file(file.filename):
             file.save(UPLOAD_FOLDER + file.filename)
             extracted_text = ocr_function(file, UPLOAD_FOLDER + file.filename, 'eng')
@@ -41,7 +41,7 @@ def home():
             if extracted_text:
                 gtts_function(extracted_text, UPLOAD_FOLDER + file.filename)
                 # return text, audio, txt file + update page
-                return render_template('index-stage-2.html',
+                return render_template('index-stage-2.5.html',
                                        msg='Successfully processed!',
                                        extracted_text=extracted_text,
                                        # extracted_text_google=extracted_text_google,

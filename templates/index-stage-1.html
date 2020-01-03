@@ -16,9 +16,9 @@
   <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,500,600" rel="stylesheet">
 
   <!-- STYLES -->
-  <link rel="stylesheet" href="file:///C:/Users/kevin.scaringi/Documents/PictureShift.com/static/css/main-new.css">
-  <link rel="stylesheet" href="file:///Users/Kevin/Documents/PictureShift.com/static/css/main-new.css">
-  <link rel="stylesheet" href="https://www.pictureshift.com/static/css/main-new.css">
+  <link rel="stylesheet" href="file:///C:/Users/kevin.scaringi/Documents/PictureShift.com/static/css/main.css">
+  <link rel="stylesheet" href="file:///Users/Kevin/Documents/PictureShift.com/static/css/main.css">
+  <link rel="stylesheet" href="https://www.pictureshift.com/static/css/main.css">
 </head>
 
 <body>
@@ -31,7 +31,8 @@
     </div>
     <div id="row">
       <div class="inner-row">
-        <div id="outer-stage" class=""> <!--remove column class-->
+        <div id="outer-stage" class="">
+          <!--remove column class-->
           <div class="inner-stage">
             <form method=post enctype=multipart/form-data> <h3 style="color: #fff;font-weight: 300;">Step 1: Choose Your File</h3>
               <label for="file-upload" class="file-upload-buttons">
@@ -43,11 +44,13 @@
               <input type=submit value="Upload File" class="file-upload-buttons">
             </form>
             {% if invalidFile %}
-              <h3 style="color:red; font-weight:bold;">{{ invalidFile }}<h3>
-            {% endif %}
+            <h3 style="color:red; font-weight:bold;">{{ invalidFile }}
+              <h3>
+                {% endif %}
           </div>
         </div>
-        <div id="outer-stage" class="column hide"> <!-- add/remove hide class -->
+        <div id="outer-stage" class="column hide">
+          <!-- add/remove hide class -->
           <ul class="inner-stage">
             <div class="circle"></div>
             <div class="circle"></div>
@@ -61,7 +64,8 @@
             <div class="circle"></div>
           </ul>
         </div>
-        <div id="outer-stage" class="column hide"> <!-- add/remove hide class -->
+        <div id="outer-stage" class="column hide">
+          <!-- add/remove hide class -->
           <div class="inner-stage">
             <p>
               <img src="https://www.pictureshift.com/static/uploads/example_01.png" style="max-width: 375px; max-height: 200px;  display: block;">
