@@ -55,11 +55,12 @@ ul.inner-stage {
 input[type="file"] {
     display: none;
 }
-input[type=submit] {
+input[type=submit], button, select {
   font-size: 0.875rem;
   line-height: 1.4;
   font-family: "Work Sans", Arial, sans-serif;
 }
+
 .file-upload-buttons {
     display: inline-block;
     padding: 3px 10px;
