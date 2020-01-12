@@ -1,14 +1,15 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, session
 from ocr_core import ocr_function
 from gtts_core import gtts_function
 # from ocr_google import detect_text
 
 app = Flask(__name__)
 application = app
+application.secret_key = "QWERTY"
 
 # define a folder to store and later serve the images
-UPLOAD_FOLDER = '/home/kevinscaringi/PictureShift.com/static/uploads/' #PythonAnywhere
-# UPLOAD_FOLDER = '/Users/Kevin/Documents/PictureShift.com/static/uploads/' #Mac
+# UPLOAD_FOLDER = '/home/kevinscaringi/PictureShift.com/static/uploads/' #PythonAnywhere
+UPLOAD_FOLDER = '/Users/Kevin/Documents/PictureShift.com/static/uploads/' #Mac
 SERVE_FOLDER = '/static/uploads/'
 
 # allow files of a specific type
@@ -23,8 +24,18 @@ def allowed_file(filename):
 @app.route('/', methods=['GET', 'POST'])
 def home():
     if request.method == 'POST':
-        ### STAGE 1 - NO FILE SELECTED ###
-        if 'file' not in request.files:
+        if not session.get("USER_FILE") is None:
+            file = session.get("USER_FILE")
+            extracted_text = ocr_function(file, file, 'eng')
+            return render_template('index-stage-2.5.html',
+                                   msg='AGAIN Successfully processed!',
+                                   extracted_text=extracted_text,
+                                   # extracted_text_google=extracted_text_google,
+                                   img_src=file,
+                                   mp3_file=file + ".mp3",
+                                   txt_file=file + ".txt")
+        ### STAGE 1.5 - NO FILE SELECTED ###
+        if 'file' not in request.files and session.get("USER_FILE") is None:
             return render_template('index-stage-1.html',
                                    invalidFile='first No file selected')
         file = request.files['file']
@@ -35,6 +46,7 @@ def home():
         ### STAGE 2.5 ###
         if file and allowed_file(file.filename):
             file.save(UPLOAD_FOLDER + file.filename)
+            session["USER_FILE"] = UPLOAD_FOLDER + file.filename
             extracted_text = ocr_function(file, UPLOAD_FOLDER + file.filename, 'eng')
             # extracted_text_google = detect_text(file)
 

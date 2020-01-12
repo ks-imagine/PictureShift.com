@@ -11,3 +11,10 @@ https://github.com/GoogleCloudPlatform/python-docs-samples/blob/master/vision/cl
 https://ocr.space/OCRAPI
 
 google-cloud-vision should work!
+
+
+
+
+
+https://stackoverflow.com/a/37234681
+Clear session before web page closes and session ends!!!
