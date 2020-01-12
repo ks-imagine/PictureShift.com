@@ -8,8 +8,8 @@ application = app
 application.secret_key = "QWERTY"
 
 # define a folder to store and later serve the images
-# UPLOAD_FOLDER = '/home/kevinscaringi/PictureShift.com/static/uploads/' #PythonAnywhere
-UPLOAD_FOLDER = '/Users/Kevin/Documents/PictureShift.com/static/uploads/' #Mac
+UPLOAD_FOLDER = '/home/kevinscaringi/PictureShift.com/static/uploads/' #PythonAnywhere
+# UPLOAD_FOLDER = '/Users/Kevin/Documents/PictureShift.com/static/uploads/' #Mac
 SERVE_FOLDER = '/static/uploads/'
 
 # allow files of a specific type
@@ -27,10 +27,10 @@ def home():
         if not session.get("USER_FILE") is None:
             file = session.get("USER_FILE")
             extracted_text = ocr_function(file, file, 'eng')
+            session.clear()
             return render_template('index-stage-2.5.html',
                                    msg='AGAIN Successfully processed!',
                                    extracted_text=extracted_text,
-                                   # extracted_text_google=extracted_text_google,
                                    img_src=file,
                                    mp3_file=file + ".mp3",
                                    txt_file=file + ".txt")
@@ -48,7 +48,6 @@ def home():
             file.save(UPLOAD_FOLDER + file.filename)
             session["USER_FILE"] = UPLOAD_FOLDER + file.filename
             extracted_text = ocr_function(file, UPLOAD_FOLDER + file.filename, 'eng')
-            # extracted_text_google = detect_text(file)
 
             if extracted_text:
                 gtts_function(extracted_text, UPLOAD_FOLDER + file.filename)
@@ -56,7 +55,6 @@ def home():
                 return render_template('index-stage-2.5.html',
                                        msg='Successfully processed!',
                                        extracted_text=extracted_text,
-                                       # extracted_text_google=extracted_text_google,
                                        img_src=SERVE_FOLDER + file.filename,
                                        mp3_file=SERVE_FOLDER + file.filename + ".mp3",
                                        txt_file=SERVE_FOLDER + file.filename + ".txt")
