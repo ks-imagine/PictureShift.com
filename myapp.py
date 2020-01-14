@@ -28,7 +28,7 @@ def home():
             file = session.get("USER_FILE")
             extracted_text = ocr_function(file, file, 'eng')
             session.clear()
-            return render_template('index-stage-2.5.html',
+            return render_template('index-stage-3.html',
                                    msg='AGAIN Successfully processed!',
                                    extracted_text=extracted_text,
                                    img_src=file,
