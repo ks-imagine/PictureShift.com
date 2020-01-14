@@ -60,6 +60,7 @@ def home():
                                        txt_file=SERVE_FOLDER + file.filename + ".txt")
             ### STAGE 2 - NONE DETECTED ###
             else:
+               session.clear()
                return render_template('index-stage-2.html',
                                       msg='No Text Detected',
                                       img_src=SERVE_FOLDER + file.filename)
@@ -69,6 +70,7 @@ def home():
                                    invalidFile='Invalid File Type')
     ### STAGE 1 - HOME ###
     elif request.method == 'GET':
+        session.clear()
         return render_template('index-stage-1.html')
 
 if __name__ == '__main__':
