@@ -8,8 +8,8 @@ application = app
 application.secret_key = "QWERTY"
 
 # define a folder to store and later serve the images
-# UPLOAD_FOLDER = '/home/kevinscaringi/PictureShift.com/static/uploads/' #PythonAnywhere
-UPLOAD_FOLDER = '/Users/Kevin/Documents/PictureShift.com/static/uploads/' #Mac
+UPLOAD_FOLDER = '/home/kevinscaringi/PictureShift.com/static/uploads/' #PythonAnywhere
+# UPLOAD_FOLDER = '/Users/Kevin/Documents/PictureShift.com/static/uploads/' #Mac
 SERVE_FOLDER = '/static/uploads/'
 
 # allow files of a specific type
@@ -26,10 +26,13 @@ def home():
     if request.method == 'POST':
         if not session.get("USER_FILE") is None:
             file = session.get("USER_FILE")
-            extracted_text = ocr_function(file, file, 'eng')
+            language = request.form.get('language')
+            text_style = request.form.get('text-style')
+            background_style = request.form.get('background-style')
+            extracted_text = ocr_function(file, file, language)
             session.clear()
             return render_template('index-stage-3.html',
-                                   msg='AGAIN Successfully processed!',
+                                   msg="AGAIN Successfully processed!" + language + text_style + background_style,
                                    extracted_text=extracted_text,
                                    img_src=file,
                                    mp3_file=file + ".mp3",
