@@ -8,8 +8,8 @@ application = app
 application.secret_key = "QWERTY"
 
 # define a folder to store and later serve the images
-UPLOAD_FOLDER = '/home/kevinscaringi/PictureShift.com/static/uploads/' #PythonAnywhere
-# UPLOAD_FOLDER = '/Users/Kevin/Documents/PictureShift.com/static/uploads/' #Mac
+# UPLOAD_FOLDER = '/home/kevinscaringi/PictureShift.com/static/uploads/' #PythonAnywhere
+UPLOAD_FOLDER = '/Users/Kevin/Documents/PictureShift.com/static/uploads/' #Mac
 SERVE_FOLDER = '/static/uploads/'
 
 # allow files of a specific type
@@ -52,7 +52,7 @@ def home():
             if extracted_text:
                 gtts_function(extracted_text, UPLOAD_FOLDER + file.filename)
                 # return text, audio, txt file + update page
-                return render_template('index-stage-2.5.html',
+                return render_template('index-stage-2.html',
                                        msg='Successfully processed!',
                                        extracted_text=extracted_text,
                                        img_src=SERVE_FOLDER + file.filename,
