@@ -31,7 +31,7 @@ def home():
                     session.clear()
                     return render_template('index-stage-1.html',
                                            invalidFile='No file selected')
-               if file and allowed_file(file.filename):
+                if file and allowed_file(file.filename):
                    file.save(UPLOAD_FOLDER + file.filename)
                    session["USER_FILE"] = UPLOAD_FOLDER + file.filename
                    session["SERVE_FILE"] = SERVE_FOLDER + file.filename
