@@ -8,8 +8,8 @@ application = app
 application.secret_key = "QWERTY"
 
 # define a folder to store and later serve the images
-# UPLOAD_FOLDER = '/home/kevinscaringi/PictureShift.com/static/uploads/' #PythonAnywhere
-UPLOAD_FOLDER = '/Users/Kevin/Documents/PictureShift.com/static/uploads/' #Mac
+UPLOAD_FOLDER = '/home/kevinscaringi/PictureShift.com/static/uploads/' #PythonAnywhere
+# UPLOAD_FOLDER = '/Users/Kevin/Documents/PictureShift.com/static/uploads/' #Mac
 SERVE_FOLDER = '/static/uploads/'
 
 # allow files of a specific type
@@ -25,29 +25,7 @@ def allowed_file(filename):
 def home():
     if request.method == 'POST':
         if not session.get("USER_FILE") is None:
-            if 'file' in request.files:
-                file = request.files['file']
-                if file.filename == '':
-                    session.clear()
-                    return render_template('index-stage-1.html',
-                                           invalidFile='No file selected')
-                if file and allowed_file(file.filename):
-                   file.save(UPLOAD_FOLDER + file.filename)
-                   session["USER_FILE"] = UPLOAD_FOLDER + file.filename
-                   session["SERVE_FILE"] = SERVE_FOLDER + file.filename
-                   extracted_text = ocr_function(file, UPLOAD_FOLDER + file.filename, 'eng')
-
-                   if extracted_text:
-                       gtts_function(extracted_text, UPLOAD_FOLDER + file.filename)
-                       # return text, audio, txt file + update page
-                       return render_template('index-stage-2.html',
-                                              msg='Successfully processed!',
-                                              extracted_text=extracted_text,
-                                              img_src=SERVE_FOLDER + file.filename,
-                                              mp3_file=SERVE_FOLDER + file.filename + ".mp3",
-                                              txt_file=SERVE_FOLDER + file.filename + ".txt")
-            else:
-                file = session.get("USER_FILE")
+            file = session.get("USER_FILE")
             language = request.form.get('language')
             text_style = request.form.get('text-style')
             background_style = request.form.get('background-style')
