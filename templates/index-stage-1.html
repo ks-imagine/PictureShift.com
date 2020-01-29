@@ -31,7 +31,7 @@
     </div>
     <div id="row">
       <div class="inner-row">
-        <div id="outer-stage" class="">
+        <div id="upload-div" class="outer-stage" style="text-align:center;">
           <!--remove column class-->
           <div class="inner-stage">
             <form method=post enctype=multipart/form-data> <h3 style="color: #fff;font-weight: 300;">Step 1: Choose Your File</h3>
@@ -47,42 +47,6 @@
             <h3 style="color:red; font-weight:bold;">{{ invalidFile }}
               <h3>
                 {% endif %}
-          </div>
-        </div>
-        <div id="outer-stage" class="column hide">
-          <!-- add/remove hide class -->
-          <ul class="inner-stage">
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-          </ul>
-        </div>
-        <div id="outer-stage" class="column hide">
-          <!-- add/remove hide class -->
-          <div class="inner-stage">
-            <p>
-              <img src="{{ img_src }}" style="max-width: 375px; max-height: 200px;  display: block;">
-            </p>
-            <h3 style="color: #fff;font-weight: 300;">Result:</h3>
-            <p>
-              <b> {{ extracted_text }} </b>
-            </p>
-            <p>
-              <audio controls autoplay>
-                <source src="{{ mp3_file }}" type="audio/mpeg">
-              </audio>
-              <br>
-              <a href="{{ mp3_file }}" download style="color: #fff;"><b>Click Here to Download MP3 File<b></a>
-              <br>
-              <a href="{{ txt_file }}" download style="color: #fff;"><b>Click Here to Download TXT File<b></a>
-            </p>
           </div>
         </div>
       </div>

@@ -31,7 +31,7 @@
     </div>
     <div id="row">
       <div class="inner-row">
-        <div id="outer-stage" class="column">
+        <div id="upload-div" class="outer-stage column" style="text-align:center;">
           <!--remove column class-->
           <div class="inner-stage">
             <form method=post enctype=multipart/form-data> <h3 style="color: #fff;font-weight: 300;">Step 1: Choose Your File</h3>
@@ -49,7 +49,134 @@
                 {% endif %}
           </div>
         </div>
-        <div id="outer-stage" class="column">
+        <div id="retry-div" class="outer-stage column hide" style="text-align:center;">
+          <!--remove column class-->
+          <div class="inner-stage">
+            <form method=post enctype=multipart/form-data> <h3 style="color: #fff;font-weight: 300;">Which option best describes the style of the text?</h3>
+              <select name="text-style" class="file-upload-buttons">
+                <option value="handwritten">Handwritten Text</option>
+                <option value="typed">Typed Text</option>
+                <option value="fancy">Fancy Text</option>
+                <option value="none">N/A</option>
+              </select>
+              <h3 style="color: #fff;font-weight: 300;">What language is this written in?</h3>
+              <select name="language" class="file-upload-buttons">
+                <option value="afr">Afrikaans</option>
+                <option value="sqi">Albanian</option>
+                <option value="amh">Amharic</option>
+                <option value="ara">Arabic</option>
+                <option value="hye">Armenian</option>
+                <option value="asm">Assamese</option>
+                <option value="aze">Azerbaijani</option>
+                <option value="eus">Basque</option>
+                <option value="bel">Belarusian</option>
+                <option value="ben">Bengali</option>
+                <option value="bos">Bosnian</option>
+                <option value="bre">Breton</option>
+                <option value="bul">Bulgarian</option>
+                <option value="mya">Burmese</option>
+                <option value="cat">Catalan</option>
+                <option value="cos">Corsican</option>
+                <option value="hrv">Croatian</option>
+                <option value="ces">Czech</option>
+                <option value="dan">Danish</option>
+                <option value="div">Divehi; Dhivehi; Maldivian</option>
+                <option value="nld">Dutch</option>
+                <option value="dzo">Dzongkha</option>
+                <option value="eng">English</option>
+                <option value="epo">Esperanto</option>
+                <option value="est">Estonian</option>
+                <option value="fao">Faroese</option>
+                <option value="fin">Finnish</option>
+                <option value="fra">French</option>
+                <option value="gla">Gaelic; Scottish Gaelic</option>
+                <option value="glg">Galician</option>
+                <option value="kat">Georgian</option>
+                <option value="deu">German</option>
+                <option value="ell">Greek, Modern (1453-)</option>
+                <option value="guj">Gujarati</option>
+                <option value="hat">Haitian; Haitian Creole</option>
+                <option value="heb">Hebrew</option>
+                <option value="hin">Hindi</option>
+                <option value="hun">Hungarian</option>
+                <option value="isl">Icelandic</option>
+                <option value="ind">Indonesian</option>
+                <option value="iku">Inuktitut</option>
+                <option value="gle">Irish</option>
+                <option value="ita">Italian</option>
+                <option value="jpn">Japanese</option>
+                <option value="jav">Javanese</option>
+                <option value="kan">Kannada</option>
+                <option value="kaz">Kazakh</option>
+                <option value="khm">Khmer</option>
+                <option value="kir">Kirghiz</option>
+                <option value="kor">Korean</option>
+                <option value="lao">Lao</option>
+                <option value="lat">Latin</option>
+                <option value="lav">Latvian</option>
+                <option value="lit">Lithuanian</option>
+                <option value="ltz">Luxembourgish; Letzeburgesch</option>
+                <option value="mkd">Macedonian</option>
+                <option value="msa">Malay</option>
+                <option value="mal">Malayalam</option>
+                <option value="mlt">Maltese</option>
+                <option value="mri">Maori</option>
+                <option value="mar">Marathi</option>
+                <option value="mon">Mongolian</option>
+                <option value="nep">Nepali</option>
+                <option value="nor">Norwegian</option>
+                <option value="oci">Occitan (post 1500); Provencal</option>
+                <option value="ori">Oriya</option>
+                <option value="pan">Panjabi</option>
+                <option value="fas">Persian</option>
+                <option value="pol">Polish</option>
+                <option value="por">Portuguese</option>
+                <option value="pus">Pushto</option>
+                <option value="que">Quechua</option>
+                <option value="ron">Romanian</option>
+                <option value="rus">Russian</option>
+                <option value="san">Sanskrit</option>
+                <option value="srp">Serbian</option>
+                <option value="snd">Sindhi</option>
+                <option value="sin">Sinhala; Sinhalese</option>
+                <option value="slk">Slovak</option>
+                <option value="slv">Slovenian</option>
+                <option value="spa">Spanish; Castilian</option>
+                <option value="sun">Sundanese</option>
+                <option value="swa">Swahili</option>
+                <option value="swe">Swedish</option>
+                <option value="tgl">Tagalog</option>
+                <option value="tgk">Tajik</option>
+                <option value="tam">Tamil</option>
+                <option value="tat">Tatar</option>
+                <option value="tel">Telugu</option>
+                <option value="tha">Thai</option>
+                <option value="bod">Tibetan</option>
+                <option value="tir">Tigrinya</option>
+                <option value="ton">Tonga (Tonga Islands)</option>
+                <option value="tur">Turkish</option>
+                <option value="uig">Uighur</option>
+                <option value="ukr">Ukrainian</option>
+                <option value="urd">Urdu</option>
+                <option value="uzb">Uzbek</option>
+                <option value="vie">Vietnamese</option>
+                <option value="cym">Welsh</option>
+                <option value="fry">Western Frisian</option>
+                <option value="yid">Yiddish</option>
+                <option value="yor">Yoruba</option>
+              </select>
+              <h3 style="color: #fff;font-weight: 300;">What option best describes the background of the image?</h3>
+              <select name="background-style" class="file-upload-buttons">
+                <option value="noisy">Noisy</option>
+                <option value="clear">Clear / Transparent</option>
+                <option value="other">Other</option>
+              </select>
+              <br><br>
+              <input type=submit value="Try Again" class="file-upload-buttons">
+            </form>
+          </div>
+        </div>
+        <div id="circle-div" class="outer-stage column" style="text-align:center;">
           <!-- add/remove hide class -->
           <ul class="inner-stage">
             <div class="circle"></div>
@@ -64,7 +191,7 @@
             <div class="circle"></div>
           </ul>
         </div>
-        <div id="outer-stage" class="column">
+        <div id="results-div" class="outer-stage column" style="text-align:center;">
           <!-- add/remove hide class -->
           <div class="inner-stage">
             <p>
@@ -87,12 +214,25 @@
               <br>
               <a href="{{ txt_file }}" download style="color: #fff;"><b>Click Here to Download TXT File<b></a>
             </p>
+            <p>
+              <button onclick="myFunction()" class="file-upload-buttons">Try Another Image</button>
+            </p>
             {% endif %}
           </div>
         </div>
       </div>
     </div>
   </div>
+  <script>
+    function myFunction() {
+      var element = document.getElementById("circle-div");
+      element.classList.toggle("flip");
+      element = document.getElementById("upload-div");
+      element.classList.toggle("hide");
+      element = document.getElementById("retry-div");
+      element.classList.toggle("hide");
+    }
+  </script>
 </body>
 
 </html>

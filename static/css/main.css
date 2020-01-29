@@ -41,7 +41,7 @@ body {
 }
 
 /* Div Stages */
-#outer-stage {
+.outer-stage {
   text-align: center;
 }
 .inner-stage {
