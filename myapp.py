@@ -31,7 +31,7 @@ def home():
             background_style = request.form.get('background-style')
             extracted_text = ocr_function(file, file, language)
             session.clear()
-            return render_template('index-stage-4.html',
+            return render_template('index-stage-3.html',
                                    msg="AGAIN Successfully processed!" + language + text_style + background_style,
                                    extracted_text=extracted_text,
                                    img_src=file,
