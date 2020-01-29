@@ -179,6 +179,7 @@
             <p>
               <img src="{{ img_src }}" style="max-width: 375px; max-height: 200px;  display: block;">
             </p>
+            {% if extracted_text %}
             <h3 style="color: #fff;font-weight: 300;">Result:</h3>
             <p>
               <b> {{ extracted_text }} </b>
@@ -192,6 +193,10 @@
               <br>
               <a href="{{ txt_file }}" download style="color: #fff;"><b>Click Here to Download TXT File<b></a>
             </p>
+            <p>
+              <button onclick="window.location.href = '/';" class="file-upload-buttons">Try Another Image</button>
+            </p>
+            {% endif %}
           </div>
         </div>
       </div>

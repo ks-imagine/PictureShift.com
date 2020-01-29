@@ -30,6 +30,7 @@ def home():
             text_style = request.form.get('text-style')
             background_style = request.form.get('background-style')
             extracted_text = ocr_function(file, file, language)
+            file = session.get("SERVE_FILE")
             session.clear()
             return render_template('index-stage-3.html',
                                    msg="AGAIN Successfully processed!" + language + text_style + background_style,
@@ -40,16 +41,17 @@ def home():
         ### STAGE 1.5 - NO FILE SELECTED ###
         if 'file' not in request.files and session.get("USER_FILE") is None:
             return render_template('index-stage-1.html',
-                                   invalidFile='first No file selected')
+                                   invalidFile='No file selected')
         file = request.files['file']
         if file.filename == '':
             return render_template('index-stage-1.html',
-                                   invalidFile='2nd No file selected')
+                                   invalidFile='No file selected')
 
         ### STAGE 2.5 ###
         if file and allowed_file(file.filename):
             file.save(UPLOAD_FOLDER + file.filename)
             session["USER_FILE"] = UPLOAD_FOLDER + file.filename
+            session["SERVE_FILE"] = SERVE_FOLDER + file.filename
             extracted_text = ocr_function(file, UPLOAD_FOLDER + file.filename, 'eng')
 
             if extracted_text:
