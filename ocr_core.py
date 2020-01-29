@@ -1,7 +1,7 @@
 from PIL import Image
 import pytesseract
 
-tessdata_dir_config = '--tessdata-dir "/home/kevinscaringi/PictureShift.com/"' #PythonAnywhere
+tessdata_dir_config = '--tessdata-dir "/home/kevinscaringi/PictureShift.com/tessdata"' #PythonAnywhere
 # tessdata_dir_config = '--tessdata-dir "/Users/Kevin/Documents/tessdata_fast"' #Mac
 def ocr_function(file, filename, language):
     # Convert Image to Grey

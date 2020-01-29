@@ -31,24 +31,6 @@
     </div>
     <div id="row">
       <div class="inner-row">
-        <div id="upload-div" class="outer-stage column hide" style="text-align:center;">
-          <!--remove column class-->
-          <div class="inner-stage">
-            <form method=post enctype=multipart/form-data> <h3 style="color: #fff;font-weight: 300;">Step 1: Choose Your File</h3>
-              <label for="file-upload" class="file-upload-buttons">
-                <i class="fa fa-cloud-upload"></i> Choose File
-              </label>
-              <input id="file-upload" type="file" />
-              <input type=file name=file>
-              <h3 style="color: #fff; font-weight: 300;">Step 2: Upload Your File</h3>
-              <input type=submit value="Upload File" class="file-upload-buttons">
-            </form>
-            {% if invalidFile %}
-            <h3 style="color:red; font-weight:bold;">{{ invalidFile }}
-              <h3>
-                {% endif %}
-          </div>
-        </div>
         <div id="retry-div" class="outer-stage column" style="text-align:center;">
           <!--remove column class-->
           <div class="inner-stage">
@@ -176,7 +158,7 @@
             </form>
           </div>
         </div>
-        <div id="circle-div" class="outer-stage column" style="text-align:center;">
+        <div id="circle-div" class="outer-stage column flip" style="text-align:center;">
           <!-- add/remove hide class -->
           <ul class="inner-stage">
             <div class="circle"></div>
@@ -210,7 +192,6 @@
               <br>
               <a href="{{ txt_file }}" download style="color: #fff;"><b>Click Here to Download TXT File<b></a>
             </p>
-            <button onclick="location.href='/';" class="file-upload-buttons">Try Another Image</button>
           </div>
         </div>
       </div>
