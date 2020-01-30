@@ -18,3 +18,7 @@ google-cloud-vision should work!
 
 https://stackoverflow.com/a/37234681
 Clear session before web page closes and session ends!!!
+
+
+
+crontab for recurring scripts?
