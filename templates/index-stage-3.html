@@ -153,12 +153,10 @@
                 <option value="clear">Clear / Transparent</option>
                 <option value="other">Other</option>
               </select>
-              <br><br>
-              <input type=submit value="Try Again" class="file-upload-buttons">
             </form>
           </div>
         </div>
-        <div id="circle-div" class="outer-stage column flip" style="text-align:center;">
+        <div id="circle-div" class="outer-stage column" style="text-align:center;">
           <!-- add/remove hide class -->
           <ul class="inner-stage">
             <div class="circle"></div>
@@ -181,9 +179,6 @@
             </p>
             {% if extracted_text %}
             <h3 style="color: #fff;font-weight: 300;">Result:</h3>
-            <p>
-              <b> {{ msg }} </b>
-            </p>
             <p>
               <b> {{ extracted_text }} </b>
             </p>

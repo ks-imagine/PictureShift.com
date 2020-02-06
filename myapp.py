@@ -34,7 +34,6 @@ def home():
             file = session.get("SERVE_FILE")
             session.clear()
             return render_template('index-stage-3.html',
-                                   msg="AGAIN Successfully processed!" + language + text_style + background_style,
                                    extracted_text=extracted_text,
                                    img_src=file,
                                    mp3_file=file + ".mp3",
@@ -45,13 +44,13 @@ def home():
             if 'file' not in request.files:
                 session.clear()
                 return render_template('index-stage-1.html',
-                                       invalidFile='1No file selected')
+                                       invalidFile='No file selected')
             file = request.files['file']
             if file.filename == '':
                 extracted_text = file.filename
                 session.clear()
                 return render_template('index-stage-1.html',
-                                       invalidFile='2No file selected  '+extracted_text+'ok')
+                                       invalidFile='No file selected')
 
             ### Stage 2 - File Selected ###
             if file and allowed_file(file.filename):
