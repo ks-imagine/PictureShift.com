@@ -38,15 +38,12 @@
               <label for="file-upload" class="file-upload-buttons">
                 <i class="fa fa-cloud-upload"></i> Choose File
               </label>
-              <input id="file-upload" type="file" />
+              <input id="file-upload" type="file" name="file" />
               <input type=file name=file>
               <h3 style="color: #fff; font-weight: 300;">Step 2: Upload Your File</h3>
+              <input type=hidden value="newFile" name="new_file">
               <input type=submit value="Upload File" class="file-upload-buttons">
             </form>
-            {% if invalidFile %}
-            <h3 style="color:red; font-weight:bold;">{{ invalidFile }}
-              <h3>
-                {% endif %}
           </div>
         </div>
         <div id="retry-div" class="outer-stage column hide" style="text-align:center;">
@@ -172,6 +169,7 @@
                 <option value="other">Other</option>
               </select>
               <br><br>
+              <input type=hidden value="advanced" name="advanced_ocr">
               <input type=submit value="Try Again" class="file-upload-buttons">
             </form>
           </div>

@@ -25,7 +25,7 @@ def allowed_file(filename):
 def home():
     if request.method == 'POST':
         ### Stage 3 -  Advanced Settings ###
-        if not session.get("USER_FILE") is None:
+        if request.form.get('advanced_ocr') == 'advanced':
             file = session.get("USER_FILE")
             language = request.form.get('language')
             text_style = request.form.get('text-style')
@@ -39,6 +39,41 @@ def home():
                                    img_src=file,
                                    mp3_file=file + ".mp3",
                                    txt_file=file + ".txt")
+
+        if request.form.get('new_file') == 'newFile':
+            ### Stage 1 - No File Selected ###
+            if 'file' not in request.files:
+                session.clear()
+                return render_template('index-stage-1.html',
+                                       invalidFile='1No file selected')
+            file = request.files['file']
+            if file.filename == '':
+                extracted_text = file.filename
+                session.clear()
+                return render_template('index-stage-1.html',
+                                       invalidFile='2No file selected  '+extracted_text+'ok')
+
+            ### Stage 2 - File Selected ###
+            if file and allowed_file(file.filename):
+                file.save(UPLOAD_FOLDER + file.filename)
+                session["USER_FILE"] = UPLOAD_FOLDER + file.filename
+                session["SERVE_FILE"] = SERVE_FOLDER + file.filename
+                extracted_text = ocr_function(file, UPLOAD_FOLDER + file.filename, 'eng')
+
+                ### Text Detected ###
+                if extracted_text:
+                    gtts_function(extracted_text, UPLOAD_FOLDER + file.filename)
+                    # return text, audio, txt file + update page
+                    return render_template('index-stage-2.html',
+                                           extracted_text=extracted_text,
+                                           img_src=SERVE_FOLDER + file.filename,
+                                           mp3_file=SERVE_FOLDER + file.filename + ".mp3",
+                                           txt_file=SERVE_FOLDER + file.filename + ".txt")
+            ### STAGE 1 - Invalid File ###
+            else:
+                session.clear()
+                return render_template('index-stage-1.html',
+                                       invalidFile='Invalid File Type')
 
         ### Stage 1 - No File Selected ###
         if 'file' not in request.files and session.get("USER_FILE") is None:
