@@ -5,7 +5,7 @@ from gtts_core import gtts_function
 
 app = Flask(__name__)
 application = app
-application.secret_key = "QWERTY"
+application.secret_key = "13t9asd(HHIetho_!$asdj42"
 
 # define a folder to store and later serve the images
 UPLOAD_FOLDER = '/home/kevinscaringi/PictureShift.com/static/uploads/' #PythonAnywhere
