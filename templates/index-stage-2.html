@@ -11,34 +11,39 @@
 
   <!-- FAVICON -->
   <link rel="shortcut icon" href="https://www.pictureshift.com/static/assets/favicon.ico" type="image/x-icon">
+  <!-- <link rel="shortcut icon" href="/static/assets/favicon.ico" type="image/x-icon"> -->
   <!-- GOOGLE FONT -->
-  <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,500,600" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,500,600" rel="stylesheet" />
   <!-- STYLES -->
   <link rel="stylesheet" href="https://www.pictureshift.com/static/css/main.css">
+  <!-- <link rel="stylesheet" href="/static/css/main.css" /> -->
   <!-- JavaScript -->
   <script type="text/javascript" src="https://www.pictureshift.com/static/js/script.js"></script>
+  <!-- <script type="text/javascript" src="/static/js/script.js"></script> -->
 </head>
 
 <body>
   <div>
     <div id="fixed-content">
-      <h1 style="font-size: 40px;color: #fff;font-weight: 400;">Picture Shift</h1>
-      <img src="https://www.pictureshift.com/static/assets/hero.svg" alt="Picture Shift Banner" style="display: block; margin: 0 auto; max-width: 375px">
+      <h1 id="title">Picture Shift</h1>
+      <img src="https://www.pictureshift.com/static/assets/hero.svg" alt="Picture Shift Banner" id="hero">
+      <!-- <img src="/static/assets/hero.svg" alt="Picture Shift Banner" id="hero"> -->
       <br>
-      <h2 style="color: #fff;font-weight: 400;">Quickly convert your images to text and audio.</h2>
+      <h2 id="subtitle">Quickly convert your images to text and audio.</h2>
     </div>
     <div id="row">
       <div class="inner-row">
         <div id="upload-div" class="outer-stage column" style="text-align:center;">
           <!--remove column class-->
           <div class="inner-stage">
-            <form method=post enctype=multipart/form-data> <h3 style="color: #fff;font-weight: 300;">Step 1: Choose Your File</h3>
+            <form method=post enctype=multipart/form-data>
+              <h3 class="forms">Step 1: Choose Your File</h3>
               <label for="file-upload" class="file-upload-buttons">
                 <i class="fa fa-cloud-upload"></i> Choose File
               </label>
               <input id="file-upload" type="file" name="file" />
               <input type=file name=file>
-              <h3 style="color: #fff; font-weight: 300;">Step 2: Upload Your File</h3>
+              <h3 class="forms">Step 2: Upload Your File</h3>
               <input type=hidden value="newFile" name="new_file">
               <input type=submit value="Upload File" class="file-upload-buttons">
             </form>
@@ -47,14 +52,15 @@
         <div id="retry-div" class="outer-stage column hide" style="text-align:center;">
           <!--remove column class-->
           <div class="inner-stage">
-            <form method=post enctype=multipart/form-data> <h3 style="color: #fff;font-weight: 300;">Which option best describes the style of the text?</h3>
+            <form method=post enctype=multipart/form-data>
+              <h3 class="forms">Which option best describes the style of the text?</h3>
               <select name="text-style" class="file-upload-buttons">
                 <option value="handwritten">Handwritten Text</option>
                 <option value="typed">Typed Text</option>
                 <option value="fancy">Fancy Text</option>
                 <option value="none">N/A</option>
               </select>
-              <h3 style="color: #fff;font-weight: 300;">What language is this written in?</h3>
+              <h3 class="forms">What language is this written in?</h3>
               <select name="language" class="file-upload-buttons">
                 <option value="afr">Afrikaans</option>
                 <option value="sqi">Albanian</option>
@@ -160,7 +166,7 @@
                 <option value="yid">Yiddish</option>
                 <option value="yor">Yoruba</option>
               </select>
-              <h3 style="color: #fff;font-weight: 300;">What option best describes the background of the image?</h3>
+              <h3 class="forms">What option best describes the background of the image?</h3>
               <select name="background-style" class="file-upload-buttons">
                 <option value="noisy">Noisy</option>
                 <option value="clear">Clear / Transparent</option>
@@ -191,15 +197,12 @@
           <!-- add/remove hide class -->
           <div class="inner-stage">
             <p>
-              <img src="{{ img_src }}" style="max-width: 375px; max-height: 200px;  display: block;">
+              <img src="{{ img_src }}" id="conversion-image">
             </p>
             {% if extracted_text %}
-            <h3 style="color: #fff;font-weight: 300;">Result:</h3>
-            <p>
+            <h3 class="forms">Result:</h3>
+            <p id="result-text">
               <b> {{ extracted_text }} </b>
-            </p>
-            <p>
-              <b> {{ extracted_text_google }} </b>
             </p>
             <p>
               <audio controls autoplay>
