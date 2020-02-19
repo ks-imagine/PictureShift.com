@@ -46,11 +46,17 @@ body {
 
 #result-text {
   font-weight: bold;
+  font-size: 18px;
 }
 
 .forms {
   color: #fff;
   font-weight: 300;
+}
+
+.download-links {
+  color: #fff;
+  font-weight: bold;
 }
 
 /*
