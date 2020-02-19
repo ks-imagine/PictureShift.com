@@ -30,7 +30,9 @@ def home():
             language = request.form.get('language')
             text_style = request.form.get('text-style')
             background_style = request.form.get('background-style')
-            extracted_text = ocr_function(file, file, language)
+            extracted_text = 'THIS TEXT CLIPS THE BACKGROUND IMAGE THIS TEXT CLIPS THE BACKGROUND IMAGE'
+            gtts_function(extracted_text, UPLOAD_FOLDER + file.filename)
+            # return text, audio, txt file + update page
             file = session.get("SERVE_FILE")
             session.clear()
             return render_template('index-stage-3.html',
