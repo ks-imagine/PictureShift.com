@@ -31,7 +31,7 @@ def home():
             language = request.form.get('language')
             text_style = request.form.get('text-style')
             background_style = request.form.get('background-style')
-            extracted_text = 'THIS TEXT CLIPS THE BACKGROUND IMAGE THIS TEXT CLIPS THE BACKGROUND IMAGE'
+            extracted_text = NEW_TEXT
             gtts_function2(extracted_text)
             # return text, audio, txt file + update page
             file = session.get("SERVE_FILE")
@@ -123,3 +123,43 @@ def home():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+NEW_TEXT = 'THIS TEXT CLIPS THE BACKGROUND IMAGE THIS TEXT CLIPS THE BACKGROUND IMAGE'
