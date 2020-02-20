@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, session
 from ocr_core import ocr_function
 from gtts_core import gtts_function
+from gtts_core2 import gtts_function2
 # from ocr_google import detect_text
 
 app = Flask(__name__)
@@ -31,15 +32,15 @@ def home():
             text_style = request.form.get('text-style')
             background_style = request.form.get('background-style')
             extracted_text = 'THIS TEXT CLIPS THE BACKGROUND IMAGE THIS TEXT CLIPS THE BACKGROUND IMAGE'
-            gtts_function(extracted_text, UPLOAD_FOLDER + file.filename)
+            gtts_function2(extracted_text)
             # return text, audio, txt file + update page
             file = session.get("SERVE_FILE")
             session.clear()
             return render_template('index-stage-3.html',
                                    extracted_text=extracted_text,
                                    img_src=file,
-                                   mp3_file=file + ".mp3",
-                                   txt_file=file + ".txt")
+                                   mp3_file=SERVE_FOLDER + "stage-3.mp3",
+                                   txt_file=SERVE_FOLDER + "stage-3.txt")
 
         if request.form.get('new_file') == 'newFile':
             ### Stage 1 - No File Selected ###
