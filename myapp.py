@@ -13,7 +13,7 @@ UPLOAD_FOLDER = '/home/kevinscaringi/PictureShift.com/static/uploads/' #PythonAn
 SERVE_FOLDER = '/static/uploads/'
 
 # allow files of a specific type
-ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg']) 
+ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
 
 # function to check the file extension
 def allowed_file(filename):
