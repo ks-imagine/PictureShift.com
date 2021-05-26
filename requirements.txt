@@ -1,0 +1,5 @@
+google-cloud-vision
+pytesseract
+Pillow
+Flask
+gTTS
